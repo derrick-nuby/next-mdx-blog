@@ -3,12 +3,57 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
     open-pull-requests-limit: 10
     labels:
       - dependencies
+      - npm
     commit-message:
-      prefix: chore
+      prefix: "chore(deps)"
       include: scope
     allow:
       - dependency-type: "all"
+    reviewers:
+      - "derrick-nuby"
+    assignees:
+      - "derrick-nuby"
+    groups:
+      react:
+        patterns:
+          - "react*"
+          - "@types/react*"
+      next:
+        patterns:
+          - "next*"
+          - "@next/*"
+      eslint:
+        patterns:
+          - "eslint*"
+          - "@eslint/*"
+      typescript:
+        patterns:
+          - "typescript*"
+          - "@types/*"
+      tailwind:
+        patterns:
+          - "tailwind*"
+          - "@tailwindcss/*"
+      radix:
+        patterns:
+          - "@radix-ui/*"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels:
+      - dependencies
+      - github-actions
+    commit-message:
+      prefix: "chore(ci)"
+      include: scope
+    reviewers:
+      - "derrick-nuby"
+    assignees:
+      - "derrick-nuby"
