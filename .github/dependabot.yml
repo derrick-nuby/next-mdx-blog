@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 100
+    labels:
+      - dependencies
+    commit-message:
+      prefix: chore
+      include: scope
+    allow:
+      - dependency-type: "all"
+    # Auto-merge is handled by GitHub when CI checks pass
